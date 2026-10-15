@@ -1,0 +1,101 @@
+import { EventConfig, FlagItem } from '../types';
+
+export const EVENT_DATA: EventConfig = {
+  eventName: "Lingofest ’26",
+  subTitle: "LANGUAGE DAY CELEBRATIONS",
+  presenter: "KULIYAPITIYA CENTRAL COLLEGE PRESENTS",
+  occasion: "Annual Language Day Celebrations",
+  invitationLead: "You are cordially invited to grace this special occasion with your esteemed presence.",
+  chiefGuest: {
+    name: "Dr. Darshana Samaraweera",
+    designation: "Deputy Director General",
+    institution: "National Institute of Education",
+    roleTag: "CHIEF GUEST",
+  },
+  invitationMessage: {
+    p1: "We cordially request the esteemed presence of Dr. Darshana Samaraweera, Deputy Director General, National Institute of Education, as the Chief Guest on the occasion of our annual Language Day Celebrations.",
+    p2: "Your invaluable presence and words of wisdom will undoubtedly inspire our young linguists and grace our special event.",
+    p3: "We eagerly anticipate your gracious acceptance and presence.",
+  },
+  details: {
+    date: "20.10.2026",
+    weekday: "Tuesday",
+    formattedDate: "Tuesday, 20 October 2026",
+    time: "9:00 AM",
+    venueHall: "School Main Hall",
+    venueSchool: "Kuliyapitiya Central College",
+    locationCity: "Kuliyapitiya, Sri Lanka",
+    timezone: "Asia/Colombo (UTC+05:30)",
+  },
+  closingLead: "We look forward to welcoming you.",
+  organizer: {
+    name: "Language Club",
+    school: "Kuliyapitiya Central College",
+  },
+  programmeTitle: "Celebrating Languages. Connecting Cultures.",
+  programmeSubtitle: "A curated celebration of global linguistic heritage, student eloquence, and vibrant world traditions.",
+  programmes: [
+    {
+      id: "performances",
+      title: "Multilingual Performances",
+      description: "Celebrate the beauty and diversity of languages through captivating musical, dramatic, and poetic performances by students.",
+      icon: "Music",
+      highlight: "Celebrating Linguistic Harmony",
+    },
+    {
+      id: "speeches",
+      title: "Student Speeches",
+      description: "Showcase the voices, articulate ideas, and confident expression of our young linguists across multiple world languages.",
+      icon: "Mic",
+      highlight: "Youth Eloquence & Leadership",
+    },
+    {
+      id: "pageant",
+      title: "A Celebration of World Cultures",
+      description: "Feature the vibrant beauty pageant representing traditional attire, customs, and living heritage from different cultures across the globe.",
+      icon: "Globe",
+      highlight: "Global Diversity Pageant",
+    },
+  ],
+};
+
+// Flags appearing around the invitation perimeter matching the original flyer concept
+export const FLAGS_DATA: FlagItem[] = [
+  { id: "lk", country: "Sri Lanka", language: "Sinhala & Tamil", greeting: "ආයුබෝවන් / வணக்கம்", script: "සිංහල", code: "LK" },
+  { id: "gb", country: "United Kingdom", language: "English", greeting: "Welcome", script: "English", code: "GB" },
+  { id: "fr", country: "France", language: "French", greeting: "Bonjour", script: "Français", code: "FR" },
+  { id: "de", country: "Germany", language: "German", greeting: "Guten Tag", script: "Deutsch", code: "DE" },
+  { id: "jp", country: "Japan", language: "Japanese", greeting: "こんにちは", script: "日本語", code: "JP" },
+  { id: "us", country: "United States", language: "English", greeting: "Welcome", script: "English", code: "US" },
+  { id: "ca", country: "Canada", language: "English & French", greeting: "Bienvenue", script: "Français", code: "CA" },
+  { id: "in", country: "India", language: "Hindi", greeting: "नमस्ते", script: "हिन्दी", code: "IN" },
+  { id: "au", country: "Australia", language: "English", greeting: "G'day", script: "English", code: "AU" },
+  { id: "it", country: "Italy", language: "Italian", greeting: "Benvenuto", script: "Italiano", code: "IT" },
+  { id: "es", country: "Spain", language: "Spanish", greeting: "¡Bienvenidos!", script: "Español", code: "ES" },
+  { id: "br", country: "Brazil", language: "Portuguese", greeting: "Olá", script: "Português", code: "BR" },
+  { id: "za", country: "South Africa", language: "Zulu & Xhosa", greeting: "Sawubona", script: "IsiZulu", code: "ZA" },
+  { id: "kr", country: "South Korea", language: "Korean", greeting: "안녕하세요", script: "한국어", code: "KR" },
+  { id: "cn", country: "China", language: "Mandarin", greeting: "你好", script: "中文", code: "CN" },
+  { id: "se", country: "Sweden", language: "Swedish", greeting: "Välkommen", script: "Svenska", code: "SE" },
+  { id: "ch", country: "Switzerland", language: "German & French", greeting: "Grüezi", script: "Schweizer", code: "CH" },
+  { id: "ar", country: "Argentina", language: "Spanish", greeting: "Bienvenidos", script: "Español", code: "AR" },
+  { id: "eg", country: "Egypt", language: "Arabic", greeting: "مرحباً", script: "العربية", code: "EG" },
+  { id: "mx", country: "Mexico", language: "Spanish", greeting: "¡Hola!", script: "Español", code: "MX" },
+  { id: "gr", country: "Greece", language: "Greek", greeting: "Καλώς ορίσατε", script: "Ελληνικά", code: "GR" },
+  { id: "nl", country: "Netherlands", language: "Dutch", greeting: "Welkom", script: "Nederlands", code: "NL" },
+  { id: "no", country: "Norway", language: "Norwegian", greeting: "Velkommen", script: "Norsk", code: "NO" },
+  { id: "jm", country: "Jamaica", language: "English Patois", greeting: "Wah Gwaan", script: "Patois", code: "JM" },
+];
+
+export const MULTILINGUAL_GLYPHS = [
+  { char: "ආ", lang: "Sinhala", name: "Sinhala Script" },
+  { char: "அ", lang: "Tamil", name: "Tamil Script" },
+  { char: "A", lang: "English", name: "Latin Script" },
+  { char: "文", lang: "Chinese", name: "Hanzi" },
+  { char: "語", lang: "Japanese", name: "Kanji" },
+  { char: "ض", lang: "Arabic", name: "Arabic Script" },
+  { char: "Ω", lang: "Greek", name: "Greek Alphabet" },
+  { char: "Я", lang: "Cyrillic", name: "Cyrillic Script" },
+  { char: "ॐ", lang: "Sanskrit", name: "Devanagari" },
+  { char: "한", lang: "Korean", name: "Hangul" },
+];
