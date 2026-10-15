@@ -59,8 +59,12 @@ export const Navbar: React.FC = () => {
           className="flex items-center gap-2.5 group"
           aria-label="Lingofest 26 Home"
         >
-          <div className="w-8 h-8 rounded-full bg-[#17243A] border border-[#C7A76C] flex items-center justify-center text-[#C7A76C] font-serif font-bold text-xs shadow-xs group-hover:scale-105 transition-transform">
-            ’26
+          <div className="w-8 h-8 rounded-full overflow-hidden bg-white border border-[#C7A76C] flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform p-0.5">
+            <img
+              src="/school-logo.png"
+              alt="Kuliyapitiya Central College Crest"
+              className="w-full h-full object-contain rounded-full"
+            />
           </div>
           <div className="flex flex-col text-left">
             <span className={`text-sm font-serif font-bold tracking-tight transition-colors ${scrolled ? 'text-[#FAF7F0]' : 'text-[#17243A]'}`}>

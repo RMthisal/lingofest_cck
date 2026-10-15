@@ -78,60 +78,13 @@ export const GoldDivider: React.FC<{ className?: string; subtitle?: string }> = 
 
 export const SchoolEmblemBadge: React.FC<{ className?: string }> = ({ className = "w-16 h-16" }) => {
   return (
-    <div className={`relative inline-flex items-center justify-center ${className}`}>
-      <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-md">
-        {/* Outer ornamental rings */}
-        <circle cx="50" cy="50" r="46" fill="#17243A" stroke="#C7A76C" strokeWidth="2" />
-        <circle cx="50" cy="50" r="42" fill="none" stroke="#C7A76C" strokeWidth="0.8" strokeDasharray="3 2" />
-        <circle cx="50" cy="50" r="38" fill="#1E2F4C" stroke="#C7A76C" strokeWidth="1" />
-        
-        {/* Laurel Wreath */}
-        <path
-          d="M26 58 C22 46 25 34 35 25 M74 58 C78 46 75 34 65 25"
-          fill="none"
-          stroke="#C7A76C"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-        
-        {/* Open Book in center */}
-        <path
-          d="M50 42 C44 38 36 38 30 40 L30 60 C36 58 44 58 50 62 C56 58 64 58 70 60 L70 40 C64 38 56 38 50 42 Z"
-          fill="#FAF7F0"
-          stroke="#C7A76C"
-          strokeWidth="1"
-        />
-        <line x1="50" y1="42" x2="50" y2="62" stroke="#C7A76C" strokeWidth="1.2" />
-        
-        {/* Quills / Rays */}
-        <line x1="50" y1="20" x2="50" y2="34" stroke="#C7A76C" strokeWidth="1.5" strokeLinecap="round" />
-        <circle cx="50" cy="18" r="2.5" fill="#C7A76C" />
-        
-        {/* Banner text or symbols */}
-        <text
-          x="50"
-          y="76"
-          textAnchor="middle"
-          fontSize="7"
-          fontFamily="Cinzel, serif"
-          fontWeight="bold"
-          letterSpacing="1"
-          fill="#C7A76C"
-        >
-          K.C.C.
-        </text>
-        <text
-          x="50"
-          y="84"
-          textAnchor="middle"
-          fontSize="5.5"
-          fontFamily="Inter, sans-serif"
-          fill="#FAF7F0"
-          letterSpacing="0.5"
-        >
-          LANGUAGE CLUB
-        </text>
-      </svg>
+    <div className={`relative inline-flex items-center justify-center p-0.5 rounded-full bg-white shadow-md border-2 border-[#C7A76C] ${className}`}>
+      <img
+        src="/school-logo.png"
+        alt="Official Crest of Kuliyapitiya Central College"
+        className="w-full h-full object-contain rounded-full select-none"
+        loading="eager"
+      />
     </div>
   );
 };
