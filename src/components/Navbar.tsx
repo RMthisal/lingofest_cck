@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { EVENT_DATA } from '../data/eventData';
-import { Volume2, VolumeX, Printer } from 'lucide-react';
+import { Printer } from 'lucide-react';
 import { AddToCalendarButton } from './AddToCalendarButton';
-import { ambientMusic } from '../utils/ambientMusic';
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,28 +13,6 @@ export const Navbar: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  useEffect(() => {
-    const syncStatus = () => {
-      const status = ambientMusic.getStatus();
-      setIsPlaying(status.isPlaying);
-      setIsMuted(status.isMuted);
-    };
-    syncStatus();
-    const timer = setInterval(syncStatus, 400);
-    return () => clearInterval(timer);
-  }, []);
-
-  const toggleMusic = () => {
-    if (!isPlaying) {
-      ambientMusic.start();
-      setIsPlaying(true);
-      setIsMuted(false);
-    } else {
-      const muted = ambientMusic.toggleMute();
-      setIsMuted(muted);
-    }
-  };
 
   const handlePrint = () => {
     window.print();
@@ -100,24 +75,7 @@ export const Navbar: React.FC = () => {
 
         {/* Action Controls */}
         <div className="flex items-center gap-2">
-          {/* Audio Music Toggle Button */}
-          <button
-            id="navbar-music-btn"
-            onClick={toggleMusic}
-            className={`p-2 rounded-full border transition-all active:scale-95 cursor-pointer flex items-center justify-center ${
-              scrolled
-                ? 'border-[#C7A76C]/40 text-[#C7A76C] hover:bg-[#FAF7F0]/10'
-                : 'border-[#17243A]/20 text-[#17243A] hover:bg-white/60'
-            }`}
-            title={isPlaying && !isMuted ? "Mute Background Music" : "Play Background Music"}
-            aria-label={isPlaying && !isMuted ? "Mute Background Music" : "Play Background Music"}
-          >
-            {isPlaying && !isMuted ? (
-              <Volume2 className="w-3.5 h-3.5 text-[#C7785C]" />
-            ) : (
-              <VolumeX className="w-3.5 h-3.5 opacity-60" />
-            )}
-          </button>
+
 
           {/* Print Button */}
           <button
