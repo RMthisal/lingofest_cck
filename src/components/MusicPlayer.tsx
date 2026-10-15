@@ -28,7 +28,7 @@ export const MusicPlayer: React.FC = () => {
               audioRef.current
                 .play()
                 .then(() => setIsPlaying(true))
-                .catch(() => {});
+                .catch(() => { });
             }
           };
           window.addEventListener('click', handleFirstGesture, { once: true });
@@ -49,7 +49,7 @@ export const MusicPlayer: React.FC = () => {
       audio.play().then(() => {
         setIsPlaying(true);
         setIsMuted(false);
-      }).catch(() => {});
+      }).catch(() => { });
     } else {
       audio.muted = true;
       setIsMuted(true);
@@ -80,11 +80,10 @@ export const MusicPlayer: React.FC = () => {
           id="toggle-music-btn"
           onClick={toggleMute}
           aria-label={isAudible ? "Mute background music" : "Play background music"}
-          className={`group relative flex items-center gap-2.5 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full border shadow-xl transition-all duration-300 active:scale-95 cursor-pointer backdrop-blur-md ${
-            isAudible
-              ? 'bg-[#17243A]/95 text-[#FAF7F0] border-[#C7A76C] hover:bg-[#304F7D]'
-              : 'bg-white/95 text-[#17243A] border-[#C7A76C]/60 hover:bg-[#FAF7F0]'
-          }`}
+          className={`group relative flex items-center gap-2.5 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full border shadow-xl transition-all duration-300 active:scale-95 cursor-pointer backdrop-blur-md ${isAudible
+            ? 'bg-[#17243A]/95 text-[#FAF7F0] border-[#C7A76C] hover:bg-[#304F7D]'
+            : 'bg-white/95 text-[#17243A] border-[#C7A76C]/60 hover:bg-[#FAF7F0]'
+            }`}
         >
           {/* Animated Equalizer Wave Bars when playing */}
           {isAudible ? (
