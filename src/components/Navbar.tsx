@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { EVENT_DATA } from '../data/eventData';
-import { Volume2, Printer } from 'lucide-react';
+import { Volume2, VolumeX, Printer } from 'lucide-react';
 import { AddToCalendarButton } from './AddToCalendarButton';
+import { ambientMusic } from '../utils/ambientMusic';
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [audioEnabled, setAudioEnabled] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,28 +17,25 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const playCeremonialChime = () => {
-    try {
-      const AudioContextClass = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-      if (!AudioContextClass) return;
-      const ctx = new AudioContextClass();
-      
-      const freqs = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6 (harmonious chord)
-      freqs.forEach((f, i) => {
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(f, ctx.currentTime + i * 0.12);
-        gain.gain.setValueAtTime(0.08, ctx.currentTime + i * 0.12);
-        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + i * 0.12 + 1.8);
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start(ctx.currentTime + i * 0.12);
-        osc.stop(ctx.currentTime + i * 0.12 + 1.8);
-      });
-      setAudioEnabled(true);
-    } catch {
-      // Audio not permitted or supported
+  useEffect(() => {
+    const syncStatus = () => {
+      const status = ambientMusic.getStatus();
+      setIsPlaying(status.isPlaying);
+      setIsMuted(status.isMuted);
+    };
+    syncStatus();
+    const timer = setInterval(syncStatus, 400);
+    return () => clearInterval(timer);
+  }, []);
+
+  const toggleMusic = () => {
+    if (!isPlaying) {
+      ambientMusic.start();
+      setIsPlaying(true);
+      setIsMuted(false);
+    } else {
+      const muted = ambientMusic.toggleMute();
+      setIsMuted(muted);
     }
   };
 
@@ -97,18 +96,23 @@ export const Navbar: React.FC = () => {
 
         {/* Action Controls */}
         <div className="flex items-center gap-2">
-          {/* Audio Chime Button */}
+          {/* Audio Music Toggle Button */}
           <button
-            onClick={playCeremonialChime}
-            className={`p-2 rounded-full border transition-all active:scale-95 cursor-pointer ${
+            id="navbar-music-btn"
+            onClick={toggleMusic}
+            className={`p-2 rounded-full border transition-all active:scale-95 cursor-pointer flex items-center justify-center ${
               scrolled
                 ? 'border-[#C7A76C]/40 text-[#C7A76C] hover:bg-[#FAF7F0]/10'
                 : 'border-[#17243A]/20 text-[#17243A] hover:bg-white/60'
             }`}
-            title={audioEnabled ? "Ceremonial chime played (click to replay)" : "Play ceremonial greeting chime"}
-            aria-label="Play ceremonial chime"
+            title={isPlaying && !isMuted ? "Mute Background Music" : "Play Background Music"}
+            aria-label={isPlaying && !isMuted ? "Mute Background Music" : "Play Background Music"}
           >
-            <Volume2 className={`w-3.5 h-3.5 ${audioEnabled ? 'text-[#C7785C]' : ''}`} />
+            {isPlaying && !isMuted ? (
+              <Volume2 className="w-3.5 h-3.5 text-[#C7785C]" />
+            ) : (
+              <VolumeX className="w-3.5 h-3.5 opacity-60" />
+            )}
           </button>
 
           {/* Print Button */}

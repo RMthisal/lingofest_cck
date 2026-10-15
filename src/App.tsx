@@ -6,6 +6,7 @@ import { InvitationCard } from './components/InvitationCard';
 import { ProgrammeHighlights } from './components/ProgrammeHighlights';
 import { EventDetails } from './components/EventDetails';
 import { ClosingSection } from './components/ClosingSection';
+import { MusicPlayer } from './components/MusicPlayer';
 
 export const App: React.FC = () => {
   const invitationSectionRef = useRef<HTMLDivElement>(null);
@@ -58,6 +59,9 @@ export const App: React.FC = () => {
         {/* F. Closing Section & Actions */}
         <ClosingSection />
       </main>
+
+      {/* Light Background Music Controller */}
+      <MusicPlayer />
     </div>
   );
 };
