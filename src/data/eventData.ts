@@ -53,13 +53,14 @@ export const EVENT_DATA: EventConfig = {
   ],
 };
 
-// Featured 5 official international celebration countries
+// Featured 6 official international celebration countries
 export const FLAGS_DATA: FlagItem[] = [
   { id: "lk", country: "Sri Lanka", language: "Sinhala & Tamil", greeting: "ආයුබෝවන්", script: "සිංහල", code: "LK" },
   { id: "gb", country: "United Kingdom", language: "English", greeting: "Welcome", script: "English", code: "GB" },
   { id: "cn", country: "China", language: "Mandarin", greeting: "你好", script: "中文", code: "CN" },
   { id: "de", country: "Germany", language: "German", greeting: "Guten Tag", script: "Deutsch", code: "DE" },
   { id: "jp", country: "Japan", language: "Japanese", greeting: "こんにちは", script: "日本語", code: "JP" },
+  { id: "kr", country: "South Korea", language: "Korean", greeting: "안녕하세요", script: "한국어", code: "KR" },
 ];
 
 export const MULTILINGUAL_GLYPHS = [

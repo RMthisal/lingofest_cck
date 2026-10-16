@@ -104,6 +104,8 @@ export const IntroScreen: React.FC<IntroScreenProps> = ({ onOpenInvitation }) =>
             <span className="text-[#17243A] font-medium">Guten Tag</span>
             <span className="text-[#C7A76C]">•</span>
             <span className="text-[#17243A] font-medium">こんにちは</span>
+            <span className="text-[#C7A76C]">•</span>
+            <span className="text-[#17243A] font-medium">안녕하세요</span>
           </div>
 
           {/* Date & Venue Preview */}

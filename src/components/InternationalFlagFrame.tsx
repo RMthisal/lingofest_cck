@@ -38,12 +38,12 @@ export const InternationalFlagFrame: React.FC<InternationalFlagFrameProps> = ({ 
           </div>
           <div className="hidden sm:inline-flex items-center gap-1 text-[10px] font-serif italic text-[#C7785C]">
             <Sparkles className="w-3 h-3 text-[#C7A76C]" />
-            <span>5 Celebrating Traditions</span>
+            <span>6 Celebrating Traditions</span>
           </div>
         </div>
 
-        {/* 5-Language Header Grid — Fully visible on mobile AND desktop */}
-        <div className="grid grid-cols-5 gap-1 sm:gap-2.5 md:gap-3 mb-4">
+        {/* 6-Language Header Grid — 2 rows of 3 on mobile, 6 across on desktop */}
+        <div className="grid grid-cols-3 sm:grid-cols-6 gap-1.5 sm:gap-2 md:gap-3 mb-4">
           {FLAGS_DATA.map((flag) => {
             const isSelected = activeFlag?.id === flag.id;
             return (
@@ -53,7 +53,7 @@ export const InternationalFlagFrame: React.FC<InternationalFlagFrameProps> = ({ 
                 onClick={() => setActiveFlag(isSelected ? null : flag)}
                 onMouseEnter={() => setActiveFlag(flag)}
                 onMouseLeave={() => setActiveFlag(null)}
-                className={`flex flex-col items-center justify-center p-1 sm:p-2.5 rounded-lg border transition-all duration-200 text-center cursor-pointer select-none ${
+                className={`flex flex-col items-center justify-center p-1.5 sm:p-2.5 rounded-lg border transition-all duration-200 text-center cursor-pointer select-none ${
                   isSelected
                     ? 'bg-white border-[#C7A76C] shadow-md -translate-y-0.5'
                     : 'bg-white/80 hover:bg-white border-[#C7A76C]/40 hover:border-[#C7A76C] shadow-2xs hover:shadow-xs'
@@ -62,16 +62,21 @@ export const InternationalFlagFrame: React.FC<InternationalFlagFrameProps> = ({ 
                 aria-label={`${flag.country} language greeting`}
               >
                 {/* Flag Icon */}
-                <div className="w-6 h-4 sm:w-9 sm:h-5 md:w-11 md:h-7 rounded-xs sm:rounded overflow-hidden shadow-2xs border border-black/10 mb-1">
+                <div className="w-7 h-4.5 sm:w-9 sm:h-5 md:w-11 md:h-7 rounded-xs sm:rounded overflow-hidden shadow-2xs border border-black/10 mb-1">
                   <FlagIcon countryCode={flag.code} className="w-full h-full object-cover" title={flag.country} />
                 </div>
 
                 {/* Country Name */}
-                <span className="text-[9px] sm:text-[11px] md:text-xs font-serif font-bold text-[#17243A] leading-tight truncate w-full">
+                <span className="text-[10px] sm:text-[11px] md:text-xs font-serif font-bold text-[#17243A] leading-tight truncate w-full">
                   {flag.country === "United Kingdom" ? (
                     <>
                       <span className="sm:hidden">UK</span>
                       <span className="hidden sm:inline">United Kingdom</span>
+                    </>
+                  ) : flag.country === "South Korea" ? (
+                    <>
+                      <span className="sm:hidden">Korea</span>
+                      <span className="hidden sm:inline">South Korea</span>
                     </>
                   ) : (
                     flag.country
@@ -79,7 +84,7 @@ export const InternationalFlagFrame: React.FC<InternationalFlagFrameProps> = ({ 
                 </span>
 
                 {/* Native Greeting */}
-                <span className="text-[8px] sm:text-[10px] md:text-[11px] text-[#C7785C] font-mono leading-tight truncate w-full mt-0.5 font-medium">
+                <span className="text-[9px] sm:text-[10px] md:text-[11px] text-[#C7785C] font-mono leading-tight truncate w-full mt-0.5 font-medium">
                   {flag.greeting}
                 </span>
 
@@ -109,7 +114,9 @@ export const InternationalFlagFrame: React.FC<InternationalFlagFrameProps> = ({ 
                   onClick={() => setActiveFlag(flag)}
                   className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/70 hover:bg-white text-[9px] sm:text-[11px] font-sans text-[#17243A] border border-[#C7A76C]/30 cursor-pointer transition-colors"
                 >
-                  <span className="font-semibold text-[#304F7D]">{flag.country === "United Kingdom" ? "UK" : flag.country}:</span>
+                  <span className="font-semibold text-[#304F7D]">
+                    {flag.country === "United Kingdom" ? "UK" : flag.country === "South Korea" ? "Korea" : flag.country}:
+                  </span>
                   <span className="font-mono text-[#C7785C]">{flag.greeting}</span>
                 </span>
                 {idx < FLAGS_DATA.length - 1 && (
