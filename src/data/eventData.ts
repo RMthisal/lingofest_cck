@@ -53,32 +53,13 @@ export const EVENT_DATA: EventConfig = {
   ],
 };
 
-// Flags appearing around the invitation perimeter matching the original flyer concept
+// Featured 5 official international celebration countries
 export const FLAGS_DATA: FlagItem[] = [
-  { id: "lk", country: "Sri Lanka", language: "Sinhala & Tamil", greeting: "ආයුබෝවන් / வணக்கம்", script: "සිංහල", code: "LK" },
+  { id: "lk", country: "Sri Lanka", language: "Sinhala & Tamil", greeting: "ආයුබෝවන්", script: "සිංහල", code: "LK" },
   { id: "gb", country: "United Kingdom", language: "English", greeting: "Welcome", script: "English", code: "GB" },
   { id: "fr", country: "France", language: "French", greeting: "Bonjour", script: "Français", code: "FR" },
   { id: "de", country: "Germany", language: "German", greeting: "Guten Tag", script: "Deutsch", code: "DE" },
   { id: "jp", country: "Japan", language: "Japanese", greeting: "こんにちは", script: "日本語", code: "JP" },
-  { id: "us", country: "United States", language: "English", greeting: "Welcome", script: "English", code: "US" },
-  { id: "ca", country: "Canada", language: "English & French", greeting: "Bienvenue", script: "Français", code: "CA" },
-  { id: "in", country: "India", language: "Hindi", greeting: "नमस्ते", script: "हिन्दी", code: "IN" },
-  { id: "au", country: "Australia", language: "English", greeting: "G'day", script: "English", code: "AU" },
-  { id: "it", country: "Italy", language: "Italian", greeting: "Benvenuto", script: "Italiano", code: "IT" },
-  { id: "es", country: "Spain", language: "Spanish", greeting: "¡Bienvenidos!", script: "Español", code: "ES" },
-  { id: "br", country: "Brazil", language: "Portuguese", greeting: "Olá", script: "Português", code: "BR" },
-  { id: "za", country: "South Africa", language: "Zulu & Xhosa", greeting: "Sawubona", script: "IsiZulu", code: "ZA" },
-  { id: "kr", country: "South Korea", language: "Korean", greeting: "안녕하세요", script: "한국어", code: "KR" },
-  { id: "cn", country: "China", language: "Mandarin", greeting: "你好", script: "中文", code: "CN" },
-  { id: "se", country: "Sweden", language: "Swedish", greeting: "Välkommen", script: "Svenska", code: "SE" },
-  { id: "ch", country: "Switzerland", language: "German & French", greeting: "Grüezi", script: "Schweizer", code: "CH" },
-  { id: "ar", country: "Argentina", language: "Spanish", greeting: "Bienvenidos", script: "Español", code: "AR" },
-  { id: "eg", country: "Egypt", language: "Arabic", greeting: "مرحباً", script: "العربية", code: "EG" },
-  { id: "mx", country: "Mexico", language: "Spanish", greeting: "¡Hola!", script: "Español", code: "MX" },
-  { id: "gr", country: "Greece", language: "Greek", greeting: "Καλώς ορίσατε", script: "Ελληνικά", code: "GR" },
-  { id: "nl", country: "Netherlands", language: "Dutch", greeting: "Welkom", script: "Nederlands", code: "NL" },
-  { id: "no", country: "Norway", language: "Norwegian", greeting: "Velkommen", script: "Norsk", code: "NO" },
-  { id: "jm", country: "Jamaica", language: "English Patois", greeting: "Wah Gwaan", script: "Patois", code: "JM" },
 ];
 
 export const MULTILINGUAL_GLYPHS = [

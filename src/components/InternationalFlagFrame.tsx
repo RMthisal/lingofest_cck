@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FLAGS_DATA } from '../data/eventData';
 import { FlagIcon } from './FlagIcon';
 import { FlagItem } from '../types';
+import { Globe2, Sparkles } from 'lucide-react';
 
 interface InternationalFlagFrameProps {
   children: React.ReactNode;
@@ -10,149 +11,111 @@ interface InternationalFlagFrameProps {
 export const InternationalFlagFrame: React.FC<InternationalFlagFrameProps> = ({ children }) => {
   const [activeFlag, setActiveFlag] = useState<FlagItem | null>(null);
 
-  // Split flags into Top (7), Right (5), Bottom (7), Left (5)
-  const topFlags = FLAGS_DATA.slice(0, 7);
-  const rightFlags = FLAGS_DATA.slice(7, 12);
-  const bottomFlags = FLAGS_DATA.slice(12, 19);
-  const leftFlags = FLAGS_DATA.slice(19, 24);
-
   return (
-    <div className="relative w-full max-w-6xl mx-auto my-6 px-2 sm:px-4 md:px-8">
-      {/* Active Flag Floating Tooltip */}
+    <div className="relative w-full max-w-4xl mx-auto my-4 sm:my-6 px-2 sm:px-4">
+      {/* Active Flag Floating Tooltip / Toast */}
       {activeFlag && (
-        <div 
+        <div
+          role="status"
+          aria-live="polite"
           className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-[#17243A]/95 backdrop-blur-md border border-[#C7A76C] text-[#FAF7F0] px-4 py-2.5 rounded-full shadow-2xl flex items-center gap-3 animate-fade-in text-xs sm:text-sm font-sans pointer-events-none"
         >
-          <FlagIcon countryCode={activeFlag.code} className="w-6 h-4 rounded-sm shadow-sm" />
+          <FlagIcon countryCode={activeFlag.code} className="w-6 h-4 rounded-xs shadow-xs" />
           <span className="font-semibold text-[#C7A76C]">{activeFlag.country}:</span>
           <span className="italic">{activeFlag.greeting}</span>
-          <span className="opacity-70 text-xs">({activeFlag.language})</span>
+          <span className="opacity-75 text-xs">({activeFlag.language})</span>
         </div>
       )}
 
-      {/* DESKTOP & TABLET: Outer Framed Envelope with Flag Perimeter */}
-      <div className="relative rounded-2xl p-2 sm:p-3 md:p-5 bg-gradient-to-b from-[#17243A]/10 via-[#FAF7F0]/40 to-[#17243A]/10 backdrop-blur-sm border border-[#C7A76C]/30 shadow-2xl">
+      {/* Decorative Outer Envelope & Language Frame */}
+      <div className="relative rounded-2xl p-2.5 sm:p-4 md:p-6 bg-gradient-to-b from-[#17243A]/5 via-[#FAF7F0]/40 to-[#17243A]/5 backdrop-blur-xs border border-[#C7A76C]/40 shadow-xl">
         
-        {/* Top Flag Rail (Desktop) */}
-        <div className="hidden lg:grid grid-cols-7 gap-3 mb-4 px-2">
-          {topFlags.map((flag) => (
-            <div
-              key={flag.id}
-              onMouseEnter={() => setActiveFlag(flag)}
-              onMouseLeave={() => setActiveFlag(null)}
-              className="group relative flex flex-col items-center justify-center p-1.5 rounded-lg bg-white/70 hover:bg-white border border-[#C7A76C]/40 hover:border-[#C7A76C] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
-            >
-              <div className="w-10 h-6 overflow-hidden rounded shadow-sm border border-black/10">
-                <FlagIcon countryCode={flag.code} className="w-full h-full object-cover" title={flag.country} />
-              </div>
-              <span className="text-[10px] font-serif font-medium text-[#17243A] mt-1 truncate max-w-[80px] group-hover:text-[#304F7D]">
-                {flag.country}
-              </span>
-              <span className="text-[9px] text-[#C7785C] font-mono opacity-80 group-hover:opacity-100">
-                {flag.greeting}
-              </span>
-            </div>
-          ))}
-        </div>
-
-        {/* Middle Container with Left Flags + Main Card + Right Flags */}
-        <div className="flex items-stretch justify-center gap-3">
-          {/* Left Flags Rail (Desktop) */}
-          <div className="hidden lg:flex flex-col justify-between py-2 w-24">
-            {leftFlags.map((flag) => (
-              <div
-                key={flag.id}
-                onMouseEnter={() => setActiveFlag(flag)}
-                onMouseLeave={() => setActiveFlag(null)}
-                className="group p-2 rounded-lg bg-white/70 hover:bg-white border border-[#C7A76C]/40 hover:border-[#C7A76C] shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 cursor-pointer text-center"
-              >
-                <div className="w-10 h-6 mx-auto overflow-hidden rounded shadow-sm border border-black/10">
-                  <FlagIcon countryCode={flag.code} className="w-full h-full object-cover" title={flag.country} />
-                </div>
-                <div className="text-[10px] font-serif text-[#17243A] font-medium mt-1 truncate">
-                  {flag.country}
-                </div>
-                <div className="text-[9px] text-[#C7785C] font-mono truncate">
-                  {flag.greeting}
-                </div>
-              </div>
-            ))}
+        {/* Languages Header Label */}
+        <div className="flex items-center justify-between gap-2 mb-2.5 px-1">
+          <div className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-mono uppercase tracking-[0.18em] text-[#304F7D] font-bold">
+            <Globe2 className="w-3.5 h-3.5 text-[#C7A76C]" />
+            <span>Featured World Languages</span>
           </div>
-
-          {/* Central Card Container */}
-          <div className="flex-1 w-full max-w-3xl">
-            {children}
-          </div>
-
-          {/* Right Flags Rail (Desktop) */}
-          <div className="hidden lg:flex flex-col justify-between py-2 w-24">
-            {rightFlags.map((flag) => (
-              <div
-                key={flag.id}
-                onMouseEnter={() => setActiveFlag(flag)}
-                onMouseLeave={() => setActiveFlag(null)}
-                className="group p-2 rounded-lg bg-white/70 hover:bg-white border border-[#C7A76C]/40 hover:border-[#C7A76C] shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 cursor-pointer text-center"
-              >
-                <div className="w-10 h-6 mx-auto overflow-hidden rounded shadow-sm border border-black/10">
-                  <FlagIcon countryCode={flag.code} className="w-full h-full object-cover" title={flag.country} />
-                </div>
-                <div className="text-[10px] font-serif text-[#17243A] font-medium mt-1 truncate">
-                  {flag.country}
-                </div>
-                <div className="text-[9px] text-[#C7785C] font-mono truncate">
-                  {flag.greeting}
-                </div>
-              </div>
-            ))}
+          <div className="hidden sm:inline-flex items-center gap-1 text-[10px] font-serif italic text-[#C7785C]">
+            <Sparkles className="w-3 h-3 text-[#C7A76C]" />
+            <span>5 Celebrating Traditions</span>
           </div>
         </div>
 
-        {/* Bottom Flag Rail (Desktop) */}
-        <div className="hidden lg:grid grid-cols-7 gap-3 mt-4 px-2">
-          {bottomFlags.map((flag) => (
-            <div
-              key={flag.id}
-              onMouseEnter={() => setActiveFlag(flag)}
-              onMouseLeave={() => setActiveFlag(null)}
-              className="group relative flex flex-col items-center justify-center p-1.5 rounded-lg bg-white/70 hover:bg-white border border-[#C7A76C]/40 hover:border-[#C7A76C] shadow-sm hover:shadow-md transition-all duration-300 hover:translate-y-0.5 cursor-pointer"
-            >
-              <div className="w-10 h-6 overflow-hidden rounded shadow-sm border border-black/10">
-                <FlagIcon countryCode={flag.code} className="w-full h-full object-cover" title={flag.country} />
-              </div>
-              <span className="text-[10px] font-serif font-medium text-[#17243A] mt-1 truncate max-w-[80px] group-hover:text-[#304F7D]">
-                {flag.country}
-              </span>
-              <span className="text-[9px] text-[#C7785C] font-mono opacity-80 group-hover:opacity-100">
-                {flag.greeting}
-              </span>
-            </div>
-          ))}
-        </div>
-
-        {/* MOBILE & TABLET: Refined Flag Marquee / Ribbon Ribbon (does not obstruct card) */}
-        <div className="lg:hidden mt-4 pt-3 border-t border-[#C7A76C]/30">
-          <div className="text-center mb-2">
-            <span className="text-[11px] uppercase tracking-wider font-semibold text-[#17243A]/70">
-              Languages & Cultures of the World
-            </span>
-          </div>
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none snap-x px-1">
-            {FLAGS_DATA.map((flag) => (
+        {/* 5-Language Header Grid — Fully visible on mobile AND desktop */}
+        <div className="grid grid-cols-5 gap-1 sm:gap-2.5 md:gap-3 mb-4">
+          {FLAGS_DATA.map((flag) => {
+            const isSelected = activeFlag?.id === flag.id;
+            return (
               <button
                 key={flag.id}
-                onClick={() => setActiveFlag(flag)}
-                className="flex-shrink-0 flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-white/80 border border-[#C7A76C]/40 shadow-sm text-left hover:bg-white active:scale-95 transition-transform"
+                type="button"
+                onClick={() => setActiveFlag(isSelected ? null : flag)}
+                onMouseEnter={() => setActiveFlag(flag)}
+                onMouseLeave={() => setActiveFlag(null)}
+                className={`flex flex-col items-center justify-center p-1 sm:p-2.5 rounded-lg border transition-all duration-200 text-center cursor-pointer select-none ${
+                  isSelected
+                    ? 'bg-white border-[#C7A76C] shadow-md -translate-y-0.5'
+                    : 'bg-white/80 hover:bg-white border-[#C7A76C]/40 hover:border-[#C7A76C] shadow-2xs hover:shadow-xs'
+                }`}
+                title={`${flag.country} (${flag.language}): ${flag.greeting}`}
+                aria-label={`${flag.country} language greeting`}
               >
-                <div className="w-5 h-3.5 rounded overflow-hidden shadow-xs">
-                  <FlagIcon countryCode={flag.code} className="w-full h-full object-cover" />
+                {/* Flag Icon */}
+                <div className="w-6 h-4 sm:w-9 sm:h-5 md:w-11 md:h-7 rounded-xs sm:rounded overflow-hidden shadow-2xs border border-black/10 mb-1">
+                  <FlagIcon countryCode={flag.code} className="w-full h-full object-cover" title={flag.country} />
                 </div>
-                <span className="text-[11px] font-medium text-[#17243A] whitespace-nowrap">
-                  {flag.country}
+
+                {/* Country Name */}
+                <span className="text-[9px] sm:text-[11px] md:text-xs font-serif font-bold text-[#17243A] leading-tight truncate w-full">
+                  {flag.country === "United Kingdom" ? (
+                    <>
+                      <span className="sm:hidden">UK</span>
+                      <span className="hidden sm:inline">United Kingdom</span>
+                    </>
+                  ) : (
+                    flag.country
+                  )}
                 </span>
-                <span className="text-[10px] text-[#C7785C] font-mono">
+
+                {/* Native Greeting */}
+                <span className="text-[8px] sm:text-[10px] md:text-[11px] text-[#C7785C] font-mono leading-tight truncate w-full mt-0.5 font-medium">
                   {flag.greeting}
                 </span>
+
+                {/* Language (Visible on larger mobile / tablet / desktop) */}
+                <span className="hidden md:block text-[9px] text-[#304F7D] font-sans mt-0.5 truncate w-full">
+                  {flag.language}
+                </span>
               </button>
+            );
+          })}
+        </div>
+
+        {/* Central Invitation Card */}
+        <div className="w-full">
+          {children}
+        </div>
+
+        {/* Bottom Language Harmony Ribbon */}
+        <div className="mt-4 pt-3 border-t border-[#C7A76C]/30 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-center">
+          <span className="text-[10px] sm:text-xs font-serif italic text-[#17243A]/75">
+            Linguistic Heritage:
+          </span>
+          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
+            {FLAGS_DATA.map((flag, idx) => (
+              <React.Fragment key={flag.id}>
+                <span
+                  onClick={() => setActiveFlag(flag)}
+                  className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/70 hover:bg-white text-[9px] sm:text-[11px] font-sans text-[#17243A] border border-[#C7A76C]/30 cursor-pointer transition-colors"
+                >
+                  <span className="font-semibold text-[#304F7D]">{flag.country === "United Kingdom" ? "UK" : flag.country}:</span>
+                  <span className="font-mono text-[#C7785C]">{flag.greeting}</span>
+                </span>
+                {idx < FLAGS_DATA.length - 1 && (
+                  <span className="text-[#C7A76C]/60 text-xs hidden sm:inline">•</span>
+                )}
+              </React.Fragment>
             ))}
           </div>
         </div>

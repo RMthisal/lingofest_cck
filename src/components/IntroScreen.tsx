@@ -97,13 +97,13 @@ export const IntroScreen: React.FC<IntroScreenProps> = ({ onOpenInvitation }) =>
             <Globe2 className="w-3.5 h-3.5 text-[#C7A76C]" />
             <span className="text-[#17243A] font-medium">ආයුබෝවන්</span>
             <span className="text-[#C7A76C]">•</span>
-            <span className="text-[#17243A] font-medium">வணக்கம்</span>
-            <span className="text-[#C7A76C]">•</span>
             <span className="text-[#17243A] font-medium">Welcome</span>
             <span className="text-[#C7A76C]">•</span>
             <span className="text-[#17243A] font-medium">Bonjour</span>
             <span className="text-[#C7A76C]">•</span>
-            <span className="text-[#17243A] font-medium">Konnichiwa</span>
+            <span className="text-[#17243A] font-medium">Guten Tag</span>
+            <span className="text-[#C7A76C]">•</span>
+            <span className="text-[#17243A] font-medium">こんにちは</span>
           </div>
 
           {/* Date & Venue Preview */}
