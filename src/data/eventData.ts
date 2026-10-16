@@ -7,7 +7,7 @@ export const EVENT_DATA: EventConfig = {
   occasion: "Annual Language Day Celebrations",
   invitationLead: "You are cordially invited to grace this special occasion with your esteemed presence.",
   invitationMessage: {
-    p1: "The Principal, Staff, and Students of Kuliyapitiya Central College, together with the Language Club, cordially request the honour of your presence at the annual Language Day Celebrations.",
+    p1: "The Language Club, cordially request the honour of your presence at the annual Language Day Celebrations.",
     p2: "Your invaluable presence will inspire our young linguists and add great honour to our celebration of linguistic harmony and world cultures.",
     p3: "We warmly look forward to welcoming you to this memorable occasion.",
   },
@@ -57,7 +57,7 @@ export const EVENT_DATA: EventConfig = {
 export const FLAGS_DATA: FlagItem[] = [
   { id: "lk", country: "Sri Lanka", language: "Sinhala & Tamil", greeting: "ආයුබෝවන්", script: "සිංහල", code: "LK" },
   { id: "gb", country: "United Kingdom", language: "English", greeting: "Welcome", script: "English", code: "GB" },
-  { id: "fr", country: "France", language: "French", greeting: "Bonjour", script: "Français", code: "FR" },
+  { id: "cn", country: "China", language: "Mandarin", greeting: "你好", script: "中文", code: "CN" },
   { id: "de", country: "Germany", language: "German", greeting: "Guten Tag", script: "Deutsch", code: "DE" },
   { id: "jp", country: "Japan", language: "Japanese", greeting: "こんにちは", script: "日本語", code: "JP" },
 ];

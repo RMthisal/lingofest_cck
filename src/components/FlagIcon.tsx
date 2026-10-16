@@ -200,12 +200,12 @@ export const FlagIcon: React.FC<FlagIconProps> = ({ countryCode, className = "w-
         <svg viewBox="0 0 60 40" className={className} role="img" aria-label={title || "China Flag"}>
           <rect width="60" height="40" fill="#DE2910" />
           {/* Big Star */}
-          <circle cx="10" cy="10" r="4" fill="#FFDE00" />
-          {/* 4 Smaller Stars */}
-          <circle cx="18" cy="5" r="1.3" fill="#FFDE00" />
-          <circle cx="21" cy="9" r="1.3" fill="#FFDE00" />
-          <circle cx="21" cy="14" r="1.3" fill="#FFDE00" />
-          <circle cx="18" cy="18" r="1.3" fill="#FFDE00" />
+          <polygon points="10,4 11.5,8.8 16.5,8.8 12.5,11.8 14,16.5 10,13.5 6,16.5 7.5,11.8 3.5,8.8 8.5,8.8" fill="#FFDE00" />
+          {/* 4 Smaller Stars pointing to center */}
+          <polygon points="20,3 20.6,4.8 22.5,4.8 21,6 21.6,7.8 20,6.6 18.4,7.8 19,6 17.5,4.8 19.4,4.8" fill="#FFDE00" transform="rotate(23 20 5)" />
+          <polygon points="24,7 24.6,8.8 26.5,8.8 25,10 25.6,11.8 24,10.6 22.4,11.8 23,10 21.5,8.8 23.4,8.8" fill="#FFDE00" transform="rotate(45 24 9)" />
+          <polygon points="24,14 24.6,15.8 26.5,15.8 25,17 25.6,18.8 24,17.6 22.4,18.8 23,17 21.5,15.8 23.4,15.8" fill="#FFDE00" />
+          <polygon points="20,19 20.6,20.8 22.5,20.8 21,22 21.6,23.8 20,22.6 18.4,23.8 19,22 17.5,20.8 19.4,20.8" fill="#FFDE00" transform="rotate(20 20 21)" />
         </svg>
       );
 
