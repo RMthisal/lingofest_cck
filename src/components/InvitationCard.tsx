@@ -53,41 +53,28 @@ export const InvitationCard: React.FC = () => {
 
         <GoldDivider className="my-5 sm:my-6" />
 
-        {/* Cordial Invitation Lead */}
-        <p className="text-xs sm:text-sm md:text-base font-serif italic text-[#17243A]/85 max-w-lg mb-6 leading-relaxed">
-          &ldquo;{EVENT_DATA.invitationLead}&rdquo;
-        </p>
-
-        {/* Prominent Chief Guest Section */}
-        <div className="w-full my-3 py-5 px-4 sm:px-8 rounded-lg bg-white/60 border border-[#C7A76C]/30 shadow-xs relative">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#17243A] text-[#FAF7F0] text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] mb-2 font-semibold">
+        {/* Cordial Invitation Framing */}
+        <div className="w-full my-4 py-6 px-5 sm:px-8 rounded-xl bg-white/70 border border-[#C7A76C]/40 shadow-xs relative">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#17243A] text-[#FAF7F0] text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] mb-4 font-semibold shadow-xs">
             <Sparkles className="w-3 h-3 text-[#C7A76C]" />
-            {EVENT_DATA.chiefGuest.roleTag}
+            CORDIAL INVITATION
           </div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#17243A] tracking-tight mt-1 mb-1">
-            {EVENT_DATA.chiefGuest.name}
-          </h2>
+          <p className="text-sm sm:text-base md:text-lg font-serif italic text-[#17243A] font-medium leading-relaxed max-w-lg mx-auto mb-4">
+            &ldquo;{EVENT_DATA.invitationLead}&rdquo;
+          </p>
 
-          <p className="text-sm sm:text-base font-sans text-[#304F7D] font-medium">
-            {EVENT_DATA.chiefGuest.designation}
-          </p>
-          <p className="text-xs sm:text-sm font-sans text-[#17243A]/70 uppercase tracking-wider font-semibold">
-            {EVENT_DATA.chiefGuest.institution}
-          </p>
-        </div>
-
-        {/* Refined Invitation Message Paragraphs */}
-        <div className="space-y-3.5 my-6 text-xs sm:text-sm md:text-[15px] font-sans text-[#17243A]/90 leading-relaxed max-w-lg text-justify sm:text-center">
-          <p>
-            &ldquo;{EVENT_DATA.invitationMessage.p1}
-          </p>
-          <p>
-            {EVENT_DATA.invitationMessage.p2}
-          </p>
-          <p className="font-medium text-[#17243A]">
-            {EVENT_DATA.invitationMessage.p3}&rdquo;
-          </p>
+          <div className="space-y-3 text-xs sm:text-sm md:text-[15px] font-sans text-[#17243A]/90 leading-relaxed max-w-lg mx-auto text-center">
+            <p className="font-medium text-[#304F7D]">
+              {EVENT_DATA.invitationMessage.p1}
+            </p>
+            <p>
+              {EVENT_DATA.invitationMessage.p2}
+            </p>
+            <p className="font-medium text-[#17243A]">
+              {EVENT_DATA.invitationMessage.p3}
+            </p>
+          </div>
         </div>
 
         <GoldDivider className="my-5" />

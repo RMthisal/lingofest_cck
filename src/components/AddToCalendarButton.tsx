@@ -11,7 +11,7 @@ export const AddToCalendarButton: React.FC<{ className?: string }> = ({ classNam
     // Start: 20261020T033000Z
     const title = `${EVENT_DATA.eventName} — ${EVENT_DATA.occasion}`;
     const location = `${EVENT_DATA.details.venueHall}, ${EVENT_DATA.details.venueSchool}, Kuliyapitiya, Sri Lanka`;
-    const description = `Annual Language Day Celebrations organized by the ${EVENT_DATA.organizer.name}, ${EVENT_DATA.organizer.school}. Chief Guest: ${EVENT_DATA.chiefGuest.name}, ${EVENT_DATA.chiefGuest.designation}, ${EVENT_DATA.chiefGuest.institution}.`;
+    const description = `Annual Language Day Celebrations organized by the ${EVENT_DATA.organizer.name}, ${EVENT_DATA.organizer.school}.`;
 
     const icsContent = [
       'BEGIN:VCALENDAR',

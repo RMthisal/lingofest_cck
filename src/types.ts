@@ -4,7 +4,7 @@ export interface EventConfig {
   presenter: string;
   occasion: string;
   invitationLead: string;
-  chiefGuest: {
+  chiefGuest?: {
     name: string;
     designation: string;
     institution: string;

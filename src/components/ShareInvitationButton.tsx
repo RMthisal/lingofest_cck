@@ -6,7 +6,7 @@ export const ShareInvitationButton: React.FC<{ className?: string }> = ({ classN
   const [copied, setCopied] = useState(false);
 
   const shareTitle = `${EVENT_DATA.eventName} — ${EVENT_DATA.occasion}`;
-  const shareText = `You are cordially invited to ${EVENT_DATA.eventName} (Annual Language Day Celebrations) of ${EVENT_DATA.organizer.school}.\n\nChief Guest: ${EVENT_DATA.chiefGuest.name} (${EVENT_DATA.chiefGuest.designation}, ${EVENT_DATA.chiefGuest.institution})\nDate: ${EVENT_DATA.details.weekday}, 20 October 2026 at 9:00 AM\nVenue: ${EVENT_DATA.details.venueHall}, ${EVENT_DATA.details.venueSchool}\n\nView the digital invitation:`;
+  const shareText = `You are cordially invited to ${EVENT_DATA.eventName} (Annual Language Day Celebrations) of ${EVENT_DATA.organizer.school}.\n\nDate: ${EVENT_DATA.details.weekday}, 20 October 2026 at 9:00 AM\nVenue: ${EVENT_DATA.details.venueHall}, ${EVENT_DATA.details.venueSchool}\n\nView the digital invitation:`;
 
   const handleNativeShare = async () => {
     const url = window.location.href;

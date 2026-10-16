@@ -6,16 +6,10 @@ export const EVENT_DATA: EventConfig = {
   presenter: "KULIYAPITIYA CENTRAL COLLEGE PRESENTS",
   occasion: "Annual Language Day Celebrations",
   invitationLead: "You are cordially invited to grace this special occasion with your esteemed presence.",
-  chiefGuest: {
-    name: "Dr. Darshana Samaraweera",
-    designation: "Deputy Director General",
-    institution: "National Institute of Education",
-    roleTag: "CHIEF GUEST",
-  },
   invitationMessage: {
-    p1: "We cordially request the esteemed presence of Dr. Darshana Samaraweera, Deputy Director General, National Institute of Education, as the Chief Guest on the occasion of our annual Language Day Celebrations.",
-    p2: "Your invaluable presence and words of wisdom will undoubtedly inspire our young linguists and grace our special event.",
-    p3: "We eagerly anticipate your gracious acceptance and presence.",
+    p1: "The Principal, Staff, and Students of Kuliyapitiya Central College, together with the Language Club, cordially request the honour of your presence at the annual Language Day Celebrations.",
+    p2: "Your invaluable presence will inspire our young linguists and add great honour to our celebration of linguistic harmony and world cultures.",
+    p3: "We warmly look forward to welcoming you to this memorable occasion.",
   },
   details: {
     date: "20.10.2026",
